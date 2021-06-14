@@ -1,0 +1,12 @@
+{% extends 'base.html' %} {% block title %}
+<h1 class="text-center">Post Klog</h1>
+{% endblock title %} {% block body %} {% from 'macros/posts_card.html' import
+post_card_macro %}
+<div class="container">
+  <div class="row">
+    {% for post in posts %}
+    <div class="col">{{ post_card_macro(post) }}</div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock body %}
