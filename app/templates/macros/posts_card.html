@@ -1,7 +1,11 @@
 {% macro post_card_macro(post) %}
 
 <div class="card" style="width: 18rem">
-  <img src="" class="card-img-top" alt="" />
+  <img
+    src="../../static/img/klog2.png"
+    class="card-img-top"
+    alt="{{post.title}}"
+  />
   <div class="card-body">
     <h5 class="card-title">{{post.title}}</h5>
     <p class="card-text">{{post.contents}}</p>
@@ -11,10 +15,6 @@
     <li class="list-group-item">{{post.email}}</li>
     <li class="list-group-item">{{post.date}}</li>
   </ul>
-  <!-- <div class="card-body">
-      <a href="#" class="card-link">Card link</a>
-      <a href="#" class="card-link">Another link</a>
-    </div> -->
 </div>
 
 {% endmacro %}

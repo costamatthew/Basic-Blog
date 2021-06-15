@@ -16,9 +16,9 @@ def get_posts():
     posts = KlogPosts().query.all()
 
     if posts == []:
-        return render_template("no_content.html")
+        return render_template("no_content.html"), 404
 
-    return render_template("base.html")
+    return render_template("posts.html", posts=posts), 200
 
 
 
@@ -57,7 +57,14 @@ def new_posts():
 
 
 
-@bp.route("/api/<int:post_id>", methods=['GET'])
+@bp.route("/api/posts/<int:post_id>", methods=['GET'])
 def get_one_post(post_id):
-    pass
+    get_post = KlogPosts.query.filter(KlogPosts.id==post_id).all()
+
+    if get_post:
+        return render_template("posts.html", posts=get_post), 200
+
+
+    return render_template("not_found.html"), 404
+
 
