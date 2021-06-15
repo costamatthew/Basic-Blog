@@ -1,6 +1,8 @@
 from flask import Blueprint, render_template, request, redirect
+from app import db
 
 from ..models.posts_model import KlogPosts
+from ..services.helper import check_data
 
 
 
@@ -31,8 +33,26 @@ def form_for_new_posts():
 @bp.route("/api/posts", methods=['POST'])
 def new_posts():
     result = request.form
-    print(result)
-    return redirect("/api")
+
+    try:
+        data = check_data(result)
+
+        new_post = KlogPosts(
+            title=data["title"],
+            date=data["date"],
+            contents=data["contents"],
+            author=data["author"],
+            email=data["email"]
+        )
+        
+        db.session.add(new_post)
+        db.session.commit()
+
+        return redirect("/api"), 201
+    except KeyError as e:
+        return e.args[0], 402
+    
+    
 
 
 
