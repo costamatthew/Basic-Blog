@@ -8,7 +8,7 @@ class KlogPosts(db.Model):
 
     id = Column(Integer, primary_key=True)
 
-    tittle = Column(String(150), nullable=False)
+    title = Column(String(150), nullable=False)
     date = Column(Date, nullable=False)
     contents = Column(String, nullable=False)
     author = Column(String(150), nullable=False)

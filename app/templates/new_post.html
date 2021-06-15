@@ -1,0 +1,62 @@
+{% extends 'base.html' %} {% block body %}
+<div class="width__new-post">
+  <form method="post">
+    <div class="mb-3">
+      <label for="title" class="form-label">Título</label>
+      <input
+        name="title"
+        type="text"
+        class="form-control"
+        id="title"
+        placeholder="Título do Post"
+      />
+    </div>
+
+    <div class="mb-3">
+      <label for="formGroupExampleInput2" class="form-label">Data</label>
+      <input
+        name="date"
+        type="date"
+        class="form-control"
+        id="formGroupExampleInput2"
+      />
+    </div>
+
+    <div class="mb-3">
+      <label for="formGroupExampleInput2" class="form-label">Conteúdo</label>
+      <textarea
+        name="contents"
+        class="form-control"
+        id="exampleFormControlTextarea1"
+        rows="3"
+      ></textarea>
+    </div>
+
+    <div class="mb-3">
+      <label for="formGroupExampleInput2" class="form-label">Autor</label>
+      <input
+        name="author"
+        type="text"
+        class="form-control"
+        id="formGroupExampleInput2"
+        placeholder="Autor"
+      />
+    </div>
+
+    <div class="mb-3">
+      <label for="formGroupExampleInput2" class="form-label">Email</label>
+      <input
+        name="email"
+        type="email"
+        class="form-control"
+        id="formGroupExampleInput2"
+        placeholder="Email"
+      />
+    </div>
+
+    <div class="col-12">
+      <button type="submit" class="btn btn-primary">Enviar</button>
+    </div>
+  </form>
+</div>
+{% endblock body %}

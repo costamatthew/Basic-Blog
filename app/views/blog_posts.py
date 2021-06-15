@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template
+from flask import Blueprint, render_template, request, redirect
 
 from ..models.posts_model import KlogPosts
 
@@ -20,15 +20,19 @@ def get_posts():
 
 
 
+
 @bp.route("/api/posts", methods=['GET'])
 def form_for_new_posts():
-    pass
+    return render_template("new_post.html")
+
 
 
 
 @bp.route("/api/posts", methods=['POST'])
 def new_posts():
-    pass
+    result = request.form
+    print(result)
+    return redirect("/api")
 
 
 
